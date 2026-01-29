@@ -117,6 +117,11 @@ public class SurfaceTextureRenderer extends EglRenderer {
     this.producer.setCallback(
             new TextureRegistry.SurfaceProducer.Callback() {
               @Override
+              public void onSurfaceCreated() {
+                // Surface created, ready for rendering
+              }
+
+              @Override
               public void onSurfaceDestroyed() {
                 surfaceDestroyed();
               }
