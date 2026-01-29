@@ -117,27 +117,9 @@ public class SurfaceTextureRenderer extends EglRenderer {
     this.producer.setCallback(
             new TextureRegistry.SurfaceProducer.Callback() {
               @Override
-              public void onSurfaceAvailable() {
-                // Do surface initialization here, and draw the current frame.
-              }
-
-              @Override
-              public void onSurfaceCleanup() {
+              public void onSurfaceDestroyed() {
                 surfaceDestroyed();
               }
-
-
-              // 旧 API 方法 (兼容旧版 Flutter) 更改
-              @Override
-              public void onSurfaceCreated() {
-                onSurfaceAvailable();
-              }
-
-              @Override
-              public void onSurfaceDestroyed() {
-                onSurfaceCleanup();
-              }
-              
             }
     );
   }
