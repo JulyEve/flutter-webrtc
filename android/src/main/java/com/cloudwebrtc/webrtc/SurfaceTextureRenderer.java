@@ -125,6 +125,19 @@ public class SurfaceTextureRenderer extends EglRenderer {
               public void onSurfaceCleanup() {
                 surfaceDestroyed();
               }
+
+
+              // 旧 API 方法 (兼容旧版 Flutter) 更改
+              @Override
+              public void onSurfaceCreated() {
+                onSurfaceAvailable();
+              }
+
+              @Override
+              public void onSurfaceDestroyed() {
+                onSurfaceCleanup();
+              }
+              
             }
     );
   }
